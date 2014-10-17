@@ -6,9 +6,9 @@ import 'dart:html';
 
 class Api{
   static final String SEND_MESSAGE_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/sendpifmelding';
-  static final String GET_REGISTERED_CODES_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentregistrertekoder/{2cedfbe}';
-  static final String GET_PIF_POS_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentpifposisjon/{2cedfbe}';
-  static final String GET_CURRENT_POST_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentgjeldendepost/{2cedfbe}';
+  static final String GET_REGISTERED_CODES_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentregistrertekoder/2cedfbe';
+  static final String GET_PIF_POS_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentpifposisjon/2cedfbe';
+  static final String GET_CURRENT_POST_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentgjeldendepost/2cedfbe';
   static final String LAG_ID = "2cedfbe";
   
   //Http _http;
@@ -20,9 +20,21 @@ class Api{
   
   static String getPost() {
     
-    var post = HttpRequest.getString(GET_REGISTERED_CODES_URL);
-    return post.toString();
+    //String post = HttpRequest.getString(GET_REGISTERED_CODES_URL).then(onDataLoaded);
+    //return HttpRequest.request(GET_REGISTERED_CODES_URL).whenComplete(action);
+        //HttpRequest.request(GET_REGISTERED_CODES_URL).then(onDataLoaded);
+    var request = HttpRequest.getString(GET_REGISTERED_CODES_URL).then(onDataLoaded);
+    return request;
+    //return data;
+   //return post;
   }
+    
+  static String onDataLoaded(String responseText) {
+    var jsonString = responseText;
+    print(jsonString);
+    return jsonString;
+  }
+
   
   static void sendHimmelretning(String retning){
     Http _http;
