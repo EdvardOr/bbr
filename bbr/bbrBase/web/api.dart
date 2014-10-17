@@ -36,7 +36,7 @@ class Api{
     Http _http;
      Map data = {
                  "Type" : "Lengde",
-                 "Innhold" : dist.toString(),
+                 "Innhold" : dist.toInt().toString(),
                  "LagId" : LAG_ID
              };
      HttpRequest.postFormData(SEND_MESSAGE_URL, data);
