@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'api.dart';
 
+
 ButtonElement northButton;
 ButtonElement southButton;
 ButtonElement westButton;
@@ -13,6 +14,7 @@ ButtonElement getPostButton;
 
 
 void main() {
+ 
   
   northButton = querySelector('#northButton');
   northButton.onClick.listen(northBadge);
