@@ -20,7 +20,7 @@ class Api{
   
   static String getPost() {
     
-    var post = HttpRequest.getString(GET_REGISTERED_CODES_URL).then(onDataLoaded);
+    var post = HttpRequest.getString(GET_REGISTERED_CODES_URL);
     return post.toString();
   }
   
