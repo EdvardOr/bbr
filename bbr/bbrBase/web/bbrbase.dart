@@ -8,6 +8,8 @@ ButtonElement eastButton;
 ButtonElement startButton;
 ButtonElement stopButton;
 ButtonElement sendButton;
+ButtonElement getPostButton;
+
 
 
 void main() {
@@ -32,7 +34,14 @@ void main() {
   
   sendButton = querySelector('#sendButton');
   sendButton.onClick.listen(sendBadge);
+  
+  getPostButton = querySelector('#getPostButton');
+  getPostButton.onClick.listen(getPostBadge);
 
+}
+void getPostBadge(Event e) {
+  String post = Api.getPost();
+  querySelector('#outputPost').text = post;
 }
 
 void sendBadge(Event e) {

@@ -22,6 +22,10 @@ class Api{
     return 'temp';
   }
   
+  static String getPost() {
+    return 'temp';
+  }
+  
   static void sendHimmelretning(String retning){
     Http _http;
     Map data = {
@@ -51,4 +55,5 @@ class Api{
             };
     HttpRequest.postFormData(SEND_MESSAGE_URL, data);
   }
+
 }
