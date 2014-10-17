@@ -2,3 +2,4 @@ name: bbrBase
 description: A sample web application
 dependencies:
   browser: any
+  angular: 1.0.0
