@@ -14,13 +14,14 @@ class Api{
   //Http _http;
   
   String getPifPos() {
-    String post = HttpRequest.getString(GET_PIF_POS_URL).toString();
-    return post;
+    String pos = HttpRequest.getString(GET_PIF_POS_URL).toString();
+    return pos;
   }
   
   static String getPost() {
-    String post = HttpRequest.getString(GET_REGISTERED_CODES_URL).toString();
-    return post;
+    
+    var post = HttpRequest.getString(GET_REGISTERED_CODES_URL).then(onDataLoaded);
+    return post.toString();
   }
   
   static void sendHimmelretning(String retning){

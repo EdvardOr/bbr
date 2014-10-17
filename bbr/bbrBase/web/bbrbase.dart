@@ -41,7 +41,8 @@ void main() {
 }
 void getPostBadge(Event e) {
   String post = Api.getPost();
-  querySelector('#outputPost').text = post;
+  InputElement input = querySelector('#outputPost');
+  input.value = post;
 }
 
 void sendBadge(Event e) {
