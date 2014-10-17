@@ -2,6 +2,7 @@ library api;
 
 import 'dart:convert';
 import 'package:angular/angular.dart';
+import 'dart:html';
 
 class Api{
   static final String SEND_MESSAGE_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/sendpifmelding';
@@ -28,26 +29,26 @@ class Api{
                 "Innhold" : retning,
                 "LagId" : LAG_ID
             };
-    _http.post(SEND_MESSAGE_URL, JSON.encode(data));
+    HttpRequest.postFormData(SEND_MESSAGE_URL, data);
   }
 
   static void sendDistanse(int dist){
     Http _http;
      Map data = {
                  "Type" : "Lengde",
-                 "Innhold" : dist,
+                 "Innhold" : dist.toString(),
                  "LagId" : LAG_ID
              };
-    _http.post(SEND_MESSAGE_URL, JSON.encode(data));
+     HttpRequest.postFormData(SEND_MESSAGE_URL, data);
   }
 
   static void sendStopp(bool stopp){
     Http _http;
     Map data = {
                 "Type" : "Stopp",
-                "Innhold" : stopp,
+                "Innhold" : stopp.toString(),
                 "LagId" : LAG_ID
             };
-    _http.post(SEND_MESSAGE_URL, JSON.encode(data));
+    HttpRequest.postFormData(SEND_MESSAGE_URL, data);
   }
 }
