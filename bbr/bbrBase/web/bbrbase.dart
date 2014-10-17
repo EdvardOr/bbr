@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'api.dart';
 
 ButtonElement northButton;
 ButtonElement southButton;
@@ -10,6 +11,7 @@ ButtonElement sendButton;
 
 
 void main() {
+  
   northButton = querySelector('#northButton');
   northButton.onClick.listen(northBadge);
   
@@ -34,30 +36,31 @@ void main() {
 }
 
 void sendBadge(Event e) {
-  return;
+  InputElement ie = querySelector('#inputNumber');
+  Api.sendDistanse(ie.valueAsNumber);
 }
 
 void startBadge(Event e) {
-  return;
+  Api.sendStopp(false);
 }
 
 void stopBadge(Event e) {
-  return;
+  Api.sendStopp(true);
 }
 
-
 void northBadge(Event e) {
-  return;
+  Api.sendHimmelretning("North");
 }
 
 void southBadge(Event e) {
-  return;
+  Api.sendHimmelretning("South");
 }
 
 void westBadge(Event e) {
-  return;
+  Api.sendHimmelretning("West");
 }
 
 void eastBadge(Event e) {
-  return;
+  Api.sendHimmelretning("East");
 }
+
