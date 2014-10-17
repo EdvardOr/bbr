@@ -32,7 +32,7 @@ class Api{
     HttpRequest.postFormData(SEND_MESSAGE_URL, data);
   }
 
-  static void sendDistanse(int dist){
+  static void sendDistanse(num dist){
     Http _http;
      Map data = {
                  "Type" : "Lengde",

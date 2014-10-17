@@ -37,7 +37,8 @@ void main() {
 
 void sendBadge(Event e) {
   InputElement ie = querySelector('#inputNumber');
-  Api.sendDistanse(ie.valueAsNumber);
+  num  number = ie.valueAsNumber;
+  Api.sendDistanse(number);
 }
 
 void startBadge(Event e) {
