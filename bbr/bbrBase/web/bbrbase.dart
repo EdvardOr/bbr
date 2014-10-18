@@ -71,20 +71,20 @@ void getPostBadge(Event e) {
 }
  
  void onDataLoadedPost(String responseText) {
-  var jsonString = responseText;
-  Map data = JSON.decode(responseText);
-  InputElement input = querySelector('#outputPost');
-  querySelector('#post').text = data["longitude"];
-  input.value = jsonString;
-}
- 
- void onDataLoadedPos(String responseText) {
-  var jsonString = responseText;
-  Map data = JSON.decode(responseText);
-  InputElement input = querySelector('#outputPost');
-  querySelector('#pos').text = data["longitude"];  
-  input.value = jsonString;
-}
+   var jsonString = responseText;
+   Map data = JSON.decode(responseText);
+   InputElement input = querySelector('#outputPost');
+   querySelector('#post').text = "Post: " + data["postNummer"].toString()+ " Longitude: " + data["gps"]["longitude"] + " Latitude: " + data["gps"]["latitude"];
+   input.value = jsonString;
+ }
+  
+  void onDataLoadedPos(String responseText) {
+   var jsonString = responseText;
+   Map data = JSON.decode(responseText);
+   InputElement input = querySelector('#outputPost');
+   querySelector('#pos').text = "PIF posisjon: " "Longitude: " + data["longitude"] + " Latitude: " + data["latitude"] + " Infisert: " + data["infisert"].toString() + " Tid: " + data["tid"].toString(); 
+   input.value = jsonString;
+ }
 
 void sendBadge(Event e) {
   InputElement ie = querySelector('#inputNumber');
