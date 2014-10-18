@@ -66,7 +66,7 @@ void getPostBadge(Event e) {
  void onDataLoadedCodes(String responseText) {
   var jsonString = responseText;
   InputElement input = querySelector('#outputPost');
-  querySelector('#codes').text = "testing";
+  querySelector('#codes').text = "Koder: " + "testing";
   input.value = jsonString;
 }
  
@@ -74,7 +74,7 @@ void getPostBadge(Event e) {
   var jsonString = responseText;
   Map data = JSON.decode(responseText);
   InputElement input = querySelector('#outputPost');
-  querySelector('#post').text = data["longitude"];
+  querySelector('#post').text = "Post: " + data["postNummer"].toString()+ " Longitude: " + data["gps"]["longitude"] + " Latitude: " + data["gps"]["latitude"];
   input.value = jsonString;
 }
  
@@ -82,7 +82,7 @@ void getPostBadge(Event e) {
   var jsonString = responseText;
   Map data = JSON.decode(responseText);
   InputElement input = querySelector('#outputPost');
-  querySelector('#pos').text = data["longitude"];  
+  querySelector('#pos').text = "PIF posisjon: " "Longitude: " + data["longitude"] + " Latitude: " + data["latitude"] + " Infisert: " + data["infisert"].toString() + " Tid: " + data["tid"].toString(); 
   input.value = jsonString;
 }
 
