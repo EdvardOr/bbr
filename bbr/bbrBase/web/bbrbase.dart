@@ -1,5 +1,6 @@
 import 'dart:html';
 import 'api.dart';
+import 'dart:convert';
 
 
 ButtonElement northButton;
@@ -11,6 +12,9 @@ ButtonElement stopButton;
 ButtonElement sendButton;
 ButtonElement getPostButton;
 
+final String GET_REGISTERED_CODES_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentregistrertekoder/2cedfbe';
+final String GET_PIF_POS_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentpifposisjon/2cedfbe';
+final String GET_CURRENT_POST_URL = 'http://bouvet-code-camp.azurewebsites.net/api/game/base/hentgjeldendepost/2cedfbe';
 
 
 void main() {
@@ -43,15 +47,41 @@ void main() {
 }
 void getPostBadge(Event e) {
   getPost();
+  getCodes();
+  getPos();
 }
 
  void getPost() {
-  var request = HttpRequest.getString('http://bouvet-code-camp.azurewebsites.net/api/game/base/hentregistrertekoder/2cedfbe').then(onDataLoaded);
+  var request = HttpRequest.getString(GET_CURRENT_POST_URL).then(onDataLoadedPost);
+}
+ 
+ void getCodes() {
+  var request = HttpRequest.getString(GET_REGISTERED_CODES_URL).then(onDataLoadedCodes);
+}
+ 
+ void getPos() {
+  var request = HttpRequest.getString(GET_PIF_POS_URL).then(onDataLoadedPos);
 }
   
- void onDataLoaded(String responseText) {
+ void onDataLoadedCodes(String responseText) {
   var jsonString = responseText;
   InputElement input = querySelector('#outputPost');
+  querySelector('#codes').text = "testing";
+  input.value = jsonString;
+}
+ 
+ void onDataLoadedPost(String responseText) {
+  var jsonString = responseText;
+  Map data = JSON.decode(responseText);
+  InputElement input = querySelector('#outputPost');
+  querySelector('#pos').text = data["longitude"];
+  input.value = jsonString;
+}
+ 
+ void onDataLoadedPos(String responseText) {
+  var jsonString = responseText;
+  InputElement input = querySelector('#outputPost');
+  querySelector('#codes').text = "testing";
   input.value = jsonString;
 }
 
