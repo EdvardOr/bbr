@@ -74,14 +74,15 @@ void getPostBadge(Event e) {
   var jsonString = responseText;
   Map data = JSON.decode(responseText);
   InputElement input = querySelector('#outputPost');
-  querySelector('#pos').text = data["longitude"];
+  querySelector('#post').text = data["longitude"];
   input.value = jsonString;
 }
  
  void onDataLoadedPos(String responseText) {
   var jsonString = responseText;
+  Map data = JSON.decode(responseText);
   InputElement input = querySelector('#outputPost');
-  querySelector('#codes').text = "testing";
+  querySelector('#pos').text = data["longitude"];  
   input.value = jsonString;
 }
 
