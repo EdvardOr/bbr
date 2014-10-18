@@ -46,13 +46,7 @@ void getPostBadge(Event e) {
 }
 
  void getPost() {
-  
-  //String post = HttpRequest.getString(GET_REGISTERED_CODES_URL).then(onDataLoaded);
-  //return HttpRequest.request(GET_REGISTERED_CODES_URL).whenComplete(action);
-      //HttpRequest.request(GET_REGISTERED_CODES_URL).then(onDataLoaded);
   var request = HttpRequest.getString('http://bouvet-code-camp.azurewebsites.net/api/game/base/hentregistrertekoder/2cedfbe').then(onDataLoaded);
-  //return data;
- //return post;
 }
   
  void onDataLoaded(String responseText) {

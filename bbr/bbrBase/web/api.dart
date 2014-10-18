@@ -18,24 +18,7 @@ class Api{
     return pos;
   }
   
-  static String getPost() {
-    
-    //String post = HttpRequest.getString(GET_REGISTERED_CODES_URL).then(onDataLoaded);
-    //return HttpRequest.request(GET_REGISTERED_CODES_URL).whenComplete(action);
-        //HttpRequest.request(GET_REGISTERED_CODES_URL).then(onDataLoaded);
-    var request = HttpRequest.getString(GET_REGISTERED_CODES_URL).then(onDataLoaded);
-    return request;
-    //return data;
-   //return post;
-  }
-    
-  static String onDataLoaded(String responseText) {
-    var jsonString = responseText;
-    print(jsonString);
-    return jsonString;
-  }
 
-  
   static void sendHimmelretning(String retning){
     Http _http;
     Map data = {
