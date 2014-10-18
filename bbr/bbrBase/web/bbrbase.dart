@@ -65,8 +65,14 @@ void getPostBadge(Event e) {
   
  void onDataLoadedCodes(String responseText) {
   var jsonString = responseText;
+  List data = JSON.decode(responseText);
   InputElement input = querySelector('#outputPost');
-  querySelector('#codes').text = "testing";
+  querySelector('#codes').text = data[0];
+  querySelector('#list').children.clear;
+  querySelector('#list').appendHtml("<li>diiid</li>");
+  for(int i = 0; i < data.length; i++){
+    querySelector('#list').appendHtml("<li>" + data[i] + "</li>");
+  }
   input.value = jsonString;
 }
  
